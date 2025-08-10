@@ -118,7 +118,7 @@ foreach ($stmt as $flights) {
     <strong>Available: </strong> {$flights['start_date']} to 
     {$flights['end_date']} 
     <br><br>
-    <a href='add_to_basket.php?id={$flights['id']}&type=flight'>Add to Basket</a></li><br>
+    <a href='../processes/add_to_basket.php?id={$flights['id']}&type=flight'>Add to Basket</a></li><br>
    </p>";
 }
 
