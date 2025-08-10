@@ -3,9 +3,9 @@
 
 <h2>Account Page</h2>
 
-<!--CHECK FOR USER SESSION-->
 <?php
 
+//Include required functions for handling different products
 function GetOfferByID($pdo, $id){
   $stmt = $pdo->prepare("SELECT * FROM offers WHERE id = ?");
   $stmt->execute([$id]);
@@ -24,6 +24,7 @@ function GetFlightByID($pdo, $id){
   return $stmt->fetch();
 }
 
+//CHECK FOR USER SESSION
 if (!empty($_SESSION['user'])) {
   echo "<p>Welcome, " . $_SESSION['user'] . "!</p>";
 
@@ -37,7 +38,6 @@ if (!empty($_SESSION['user'])) {
   $user = $stmt->fetch();
 }
 
-//was just $user - note in case of future errors
 if (!empty($_SESSION['user'])) {
     $stmt = $pdo->prepare("SELECT type, item_id, booked_at FROM bookings WHERE user_id = ? ORDER BY booked_at desc");
     $stmt->execute([$user['id']]);
@@ -55,13 +55,15 @@ if (!empty($_SESSION['user'])) {
           //Display offers in account
           echo "<strong>PACKAGE: </strong> {$offer['title']} - ({$offer['type']}), {$offer['destination']}
           <br>[{$offer['start_date']} to {$offer['end_date']}]<br><br>";
-
+          
+        //Checks if item passed is for the 'hotel' type
         } else if ($bookingItem['type'] === "hotel"){
           $hotel = GetHotelByID($pdo, $bookingItem['item_id']);
           //Display hotels in account
           echo "<strong>HOTEL: </strong> {$hotel['name']} - ({$hotel['company']}), {$hotel['country']}
           <br>[{$hotel['start_date']} to {$hotel['end_date']}]<br><br>";
 
+        //Checks if item passed is for the 'flight' type
         } else if ($bookingItem['type'] === "flight"){
           $flight = GetFlightByID($pdo, $bookingItem['item_id']);
           //Display flights in account
