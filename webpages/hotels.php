@@ -120,7 +120,7 @@ foreach ($stmt as $hotel) {
     <strong>Available: </strong> {$hotel['start_date']} to 
     {$hotel['end_date']} 
     <br><br>
-    <a href='add_to_basket.php?id={$hotel['id']}&type=hotel'>Add to Basket</a></li><br>
+    <a href='../processes/add_to_basket.php?id={$hotel['id']}&type=hotel'>Add to Basket</a></li><br>
    </p>";
 }
 
