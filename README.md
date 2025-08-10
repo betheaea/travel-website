@@ -1,6 +1,7 @@
 # travel-website
 
-##Setup Instructions
+## Setup Instructions
+
 1. Install XAMPP Control Panel with MySQL from https://www.apachefriends.org/download.html
 2. Open the Control Panel and ensure Apache and MySQL are started
 3. Clone the basic-website repository code into a local folder
