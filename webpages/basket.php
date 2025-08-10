@@ -64,7 +64,7 @@ if (empty($basket)) {
       $total += $flight['price'];
       //Display flights in basket
       echo "<strong>FLIGHT: </strong> {$flight['name']} - ({$flight['company']}), {$flight['country']}, £{$flight['price']}
-      <br>[{$flight['start_date']} to {$flight['end_date']}] ~ <a href='remove_from_basket.php?id={$flight['id']}&type=flight'>Remove</a></li><br><br>";
+      <br>[{$flight['start_date']} to {$flight['end_date']}] ~ <a href='../processes/remove_from_basket.php?id={$flight['id']}&type=flight'>Remove</a></li><br><br>";
     }
   }
 
